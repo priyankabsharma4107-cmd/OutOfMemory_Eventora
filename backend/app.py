@@ -218,10 +218,12 @@ def register():
         return jsonify({"error": str(e)}), 500
 
 
+try:
+    setup_database()
+    print("EVENTORA connected to Railway MySQL!")
+except Error as e:
+    print("Database connection failed:", e)
+
+
 if __name__ == "__main__":
-    try:
-        setup_database()
-        print("EVENTORA connected to Railway MySQL!")
-        app.run(debug=True)
-    except Error as e:
-        print("Database connection failed:", e)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
