@@ -80,7 +80,7 @@ let events = [
     }
 ];
 
-const API_URL = "http://127.0.0.1:5000/api/events";
+const API_URL = "https://outofmemoryeventora-production-9ca1.up.railway.app/api/events";
 const $ = selector => document.querySelector(selector);
 
 let category = "All";
